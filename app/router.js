@@ -8,10 +8,18 @@ const AppRouter = Router.extend({
   rootURL: config.rootURL
 });
 
+
 AppRouter.map(function() {
+  // LIST OF ORGS
   this.route('orgs', {});  //  /orgs
+
+  // INDIVIDUAL ORG
   this.route('org', { path: 'org/:id' }, function() { // org/emberjs
+
+    // LIST OF REPOS
     this.route('repos', {});
+
+    // INDIVIDUAL REPO
     this.route('repo', { path: ':repoid' }, function() {
       this.route('contributors', {});
       this.route('issues', {});
