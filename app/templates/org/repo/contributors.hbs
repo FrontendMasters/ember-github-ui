@@ -2,3 +2,9 @@
 
 
 <p>Contributors</p>
+
+<ul>
+  {{#each content as |contributor|}}
+    <li>{{contributor.login}}</li>
+  {{/each}}
+</ul>

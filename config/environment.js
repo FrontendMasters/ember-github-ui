@@ -16,7 +16,10 @@ module.exports = function(environment) {
         Date: false
       }
     },
-
+    contentSecurityPolicy: {
+      'connect-src': 'https://api.github.com',
+      'img-src': 'https://avatars.githubusercontent.com'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
