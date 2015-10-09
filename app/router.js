@@ -14,16 +14,19 @@ AppRouter.map(function() {
   this.route('orgs', {});  //  /orgs
 
   // INDIVIDUAL ORG
-  this.route('org', { path: 'org/:id' }, function() { // org/emberjs
+  this.route('org', { path: 'org/:id' }, function() {
+    // org/emberjs
 
     // LIST OF REPOS
     this.route('repos', {});
 
     // INDIVIDUAL REPO
+    // org/jquery/jquery-ui
     this.route('repo', { path: ':repoid' }, function() {
       this.route('contributors', {});
       this.route('issues', {});
-    }); // org/jquery/jquery-ui
+    });
+    this.route('notfound', {});
   });
   this.route('notfound', { path: '*path' });
 });
