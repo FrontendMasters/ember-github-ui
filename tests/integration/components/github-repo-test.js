@@ -11,16 +11,36 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{github-repo}}`);
+  const repo = Ember.Object.create({
+    forks_count: 32,
+    watchers_count: 99,
+    name: 'repoooo'
+  });
+  this.set('repo', repo);
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{github-repo repo=repo}}`);
+
+  assert.equal(this.$().text().trim(), `repoooo
+
+
+(
+Forks: 32
+Watchers: 99
+)`);
 
   // Template block usage:
   this.render(hbs`
-    {{#github-repo}}
-      template block text
+    {{#github-repo repo=repo}}
+      ABC
     {{/github-repo}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), `ABC
+
+
+
+(
+Forks: 32
+Watchers: 99
+)`);
 });
