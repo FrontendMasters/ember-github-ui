@@ -1,0 +1,16 @@
+
+{{#link-to 'org.repo.issues' repo.name}}
+
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    {{repo.name}}
+  {{/if}}
+{{/link-to}}
+
+<span class="grey-text">
+(
+Forks: {{repo.forks_count}}
+Watchers: {{repo.watchers_count}}
+)
+</span>
