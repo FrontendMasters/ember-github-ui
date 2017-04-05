@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
 import startApp from 'github-ui/tests/helpers/start-app';
-
+import Pretender from 'pretender';
 
 function json(obj, status=200) {
   return [status, { 'Content-Type' : 'text/json'}, JSON.stringify(obj)];
